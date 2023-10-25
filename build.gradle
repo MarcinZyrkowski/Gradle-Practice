@@ -1,0 +1,34 @@
+plugins {
+    id 'java' // java core functionality
+}
+// a clean build file should always have a plugins block in the top
+
+// this 'java' extension is added by java plugin
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
+
+group = "org.example"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.10.0'
+    lombokVersion = '1.18.22'
+}
+
+dependencies {
+    implementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    // junit test engine is required
+
+    implementation "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+}
+
+tasks.test {
+    useJUnitPlatform()
+}

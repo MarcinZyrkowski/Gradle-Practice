@@ -1,0 +1,8 @@
+// setting constant name is recommended
+// if it is not set it is derived from the folder name
+rootProject.name = "Gradle-Practice"
+
+
+// file is used to define the subprojects (modules) in your multi-project build
+include 'TestFramework'
+
