@@ -1,0 +1,1 @@
+The purpose of this project is to learn Gradle and use its functionalities

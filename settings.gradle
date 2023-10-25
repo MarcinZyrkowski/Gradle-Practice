@@ -4,5 +4,6 @@ rootProject.name = "Gradle-Practice"
 
 
 // file is used to define the subprojects (modules) in your multi-project build
+// The presence of the include call turns the app directory into a subproject.
 include 'TestFramework'
 
