@@ -1,0 +1,9 @@
+# A version catalog used to declare all direct dependencies of a project in a central location.
+
+# libs.version.toml has to be in gradle directory
+
+[versions]
+fakerVer = "1.0.2"
+
+[libraries]
+javafaker = { module = "com.github.javafaker:javafaker", version.ref = "fakerVer" }
