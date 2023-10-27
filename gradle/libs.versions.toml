@@ -4,6 +4,8 @@
 
 [versions]
 fakerVer = "1.0.2"
+allureVer = "2.24.0"
 
 [libraries]
 javafaker = { module = "com.github.javafaker:javafaker", version.ref = "fakerVer" }
+allureReportJunit = {module = "io.qameta.allure:allure-junit5", version.ref = "allureVer"}
