@@ -7,6 +7,12 @@ public class SampleTest {
     @Test
     public void sampleTest() {
         System.out.println("Passed");
+
+
+
+
+
+        System.out.println("xxx");
     }
 
 }

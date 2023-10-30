@@ -1,6 +1,7 @@
 plugins {
     id 'java' // java core functionality
     id 'application' // Apply the application plugin to add support for building a CLI application in Java.
+    id 'checkstyle'
 }
 // a clean build file should always have a plugins block in the top
 
@@ -32,6 +33,7 @@ dependencies {
 
     implementation libs.javafaker
 
+    implementation 'com.puppycrawl.tools:checkstyle:10.12.4'
 }
 
 tasks.test {
@@ -49,4 +51,24 @@ tasks.register("hello") {
     doLast {
         println("hello - task")
     }
+}
+
+checkstyle {
+    toolVersion = '10.12.4' // Specify your Checkstyle version
+    configFile = file('config/checkstyle/google_checks.xml') // Path to your custom Checkstyle configuration
+}
+
+tasks.register('verifyMyOwnCheckstyle', Checkstyle) {
+    source 'src/main/java' // Customize source sets as needed
+    source 'src/test/java'
+
+    include '**/*.java'   // Customize inclusion patterns
+
+    // set classpath
+    classpath = files(configurations.checkstyle)
+
+    // Fail the build if Checkstyle violations are found
+    ignoreFailures = false
+
+    dependsOn tasks.checkstyleMain, tasks.checkstyleTest
 }
