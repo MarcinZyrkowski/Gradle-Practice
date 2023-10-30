@@ -67,8 +67,11 @@ tasks.register('verifyMyOwnCheckstyle', Checkstyle) {
     // set classpath
     classpath = files(configurations.checkstyle)
 
-    // Fail the build if Checkstyle violations are found
+    // checkstyle fails when there is any warning or error
     ignoreFailures = false
+
+    maxErrors = 0
+    maxWarnings = 0
 
     dependsOn tasks.checkstyleMain, tasks.checkstyleTest
 }
